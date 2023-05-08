@@ -1,0 +1,6 @@
+train: ./YOLODataset/images/train/
+val: ./YOLODataset/images/val/
+
+nc: 4
+
+names: ['Nut', 'Secure_Nut', 'Cracked_Secure_Nut', 'Cracked_Nut']

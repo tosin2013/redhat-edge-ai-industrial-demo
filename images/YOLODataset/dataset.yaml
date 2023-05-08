@@ -1,6 +1,0 @@
-train: Demo/YOLODataset/images/train/
-val: Demo/YOLODataset/images/val/
-
-nc: 3
-
-names: ['Cracked_Nut', 'Nut', 'Secure_Nut']
