@@ -3,4 +3,4 @@ val: ./YOLODataset/images/val/
 
 nc: 4
 
-names: ['Nut', 'Secure_Nut', 'Cracked_Secure_Nut', 'Cracked_Nut']
+names: ['Cracked_Secure_Nut', 'Cracked_Nut', 'Secure_Nut', 'Nut']
