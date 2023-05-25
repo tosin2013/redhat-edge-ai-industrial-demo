@@ -1,0 +1,6 @@
+train: /home/bdherouv/Orin/redhat-edge-ai-industrial-demo/dataset/images_annotated/YOLODataset/images/train/
+val: /home/bdherouv/Orin/redhat-edge-ai-industrial-demo/dataset/images_annotated/YOLODataset/images/val/
+
+nc: 2
+
+names: ['Nut', 'Nut_Broken']
