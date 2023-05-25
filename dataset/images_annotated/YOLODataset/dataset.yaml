@@ -1,5 +1,5 @@
-train: /home/bdherouv/Orin/redhat-edge-ai-industrial-demo/dataset/images_annotated/YOLODataset/images/train/
-val: /home/bdherouv/Orin/redhat-edge-ai-industrial-demo/dataset/images_annotated/YOLODataset/images/val/
+train: ./YOLODataset/images/train/
+val: ./YOLODataset/images/val/
 
 nc: 2
 
