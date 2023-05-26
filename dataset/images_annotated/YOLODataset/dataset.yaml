@@ -1,6 +1,6 @@
-train: ../images_annotated/YOLODataset/images/train/
-val: ../images_annotated/YOLODataset/images/val/
+train: ./images_annotated/YOLODataset/images/train/
+val: ./images_annotated/YOLODataset/images/val/
 
-nc: 3
+nc: 2
 
-names: ['Nut', 'Broken_Nut', 'Nut_Broken']
+names: ['Broken_Nut', 'Nut']
