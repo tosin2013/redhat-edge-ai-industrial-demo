@@ -3,4 +3,4 @@ val: ./images_annotated/YOLODataset/images/val/
 
 nc: 2
 
-names: ['Broken_Nut', 'Nut']
+names: ['Nut', 'Broken_Nut']
