@@ -1,5 +1,11 @@
 ![Nut Demo](images/screenshot.png)
 
+
+## Download the Jupyter Lab
+
+[Train_Nut](Train_Nut.ipynb)
+
+
 ## Clone the Repository
 
 This cell clones the repository from the URL "https://github.com/bdherouville/redhat-edge-ai-industrial-demo.git" using the `git clone` command. The repository contains the code and data for the Red Hat Edge AI Industrial Demo.
