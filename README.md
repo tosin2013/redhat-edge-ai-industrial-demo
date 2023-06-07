@@ -3,8 +3,12 @@
 
 ## Download the Jupyter Lab
 
+
 [Train_Nut](Train_Nut.ipynb)
 
+
+
+# Content of the Jupyter Lab
 
 ## Clone the Repository
 
