@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
   - name: Create a namespace with token  
-    shell: whoami && pwd && ls -la /home/adminlocal/kubeconfig-orin
+    shell: whoami && pwd && id
     register: command_output
 
   - debug:
