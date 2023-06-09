@@ -1,8 +1,17 @@
 - name: oc_get_all
   hosts: all
   tasks:
-  - name: Create a namespace with token  
+  environment:
+    KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
+  - name: Create a namespace with token
     shell: whoami && pwd && id && hostname
+    register: command_output
+
+  - debug:
+      msg: "{{ command_output }}"
+
+  - name: Test oc
+    shell: oc get all --insecure-skip-tls-verify=true
     register: command_output
 
   - debug:
