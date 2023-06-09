@@ -1,0 +1,16 @@
+- name: Login
+  hosts: localhost
+  gather_facts: false
+  environment:
+    KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
+  tasks:
+  - name: login to cluster using kubeadmin
+    shell: "oc login -u kubeadmin -p 6443 --server="https://192.168.0.148:6443" --insecure-skip-tls-verify=true"
+  - name: Verify login
+    shell: "oc whoami"
+    register: logged_in_user
+  - name: Create a namespace with token  
+    k8s:
+      name: testnamespace  
+      kind: Namespace  
+      state: present
