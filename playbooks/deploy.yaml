@@ -7,4 +7,4 @@
     register: command_output
 
   - debug:
-      msg: command_output
+      msg: "{{ command_output }}"
