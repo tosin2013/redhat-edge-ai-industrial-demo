@@ -7,6 +7,8 @@
   - name: oc get all
     shell: oc get all --insecure-skip-tls-verify=true
     register: command_output
+    args:
+      chdir: /home/adminlocal/orin
 
   - debug:
       msg: "{{ command_output }}"
