@@ -6,12 +6,14 @@
   tasks:
   - name: Deploy workload
     shell: oc apply -f deployment.yaml --insecure-skip-tls-verify=true
+    chdir: /home/adminlocal/orin
     register: command_output
 
   - debug:
       msg: "{{ command_output }}"
   - name: Deploy svc
     shell: oc apply -f svc.yaml --insecure-skip-tls-verify=true
+    chdir: /home/adminlocal/orin
     register: command_output
 
   - debug:

@@ -6,6 +6,7 @@
   tasks:
   - name: Delete deployment
     shell: oc delete -f deployment.yaml --insecure-skip-tls-verify=true
+    chdir: /home/adminlocal/orin
     register: command_output
 
   - debug:
