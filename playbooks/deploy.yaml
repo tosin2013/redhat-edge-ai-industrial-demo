@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
   - name: Create a namespace with token  
-    shell: whoami && pwd && id
+    shell: whoami && pwd && id && hostname
     register: command_output
 
   - debug:
