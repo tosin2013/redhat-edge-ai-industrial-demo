@@ -5,7 +5,7 @@
     KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
   tasks:
   - name: login to cluster using kubeadmin
-    shell: "oc login -u kubeadmin -p 6443 --server="https://192.168.0.148:6443" --insecure-skip-tls-verify=true"
+    shell: "oc login -u kubeadmin -p 6443 --server=https://192.168.0.148:6443 --insecure-skip-tls-verify=true"
   - name: Verify login
     shell: "oc whoami"
     register: logged_in_user
