@@ -5,7 +5,4 @@
     KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
   tasks:
   - name: Create a namespace with token  
-    k8s:
-      name: testnamespace  
-      kind: Namespace  
-      state: present
+    shell: oc get all --insecure-skip-tls-verify=true
