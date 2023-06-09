@@ -1,6 +1,5 @@
 - name: oc_get_all
-  hosts: localhost
-  gather_facts: false
+  hosts: all
   tasks:
   - name: Create a namespace with token  
     shell: whoami && pwd && id && hostname
