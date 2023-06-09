@@ -4,14 +4,7 @@
   environment:
     KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
   tasks:
-  - name: Create a namespace with token
-    shell: whoami && pwd && id && hostname
-    register: command_output
-
-  - debug:
-      msg: "{{ command_output }}"
-
-  - name: Test oc
+  - name: oc get all
     shell: oc get all --insecure-skip-tls-verify=true
     register: command_output
 
