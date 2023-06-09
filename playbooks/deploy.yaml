@@ -3,6 +3,7 @@
   tasks:
   environment:
     KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
+  tasks:
   - name: Create a namespace with token
     shell: whoami && pwd && id && hostname
     register: command_output
