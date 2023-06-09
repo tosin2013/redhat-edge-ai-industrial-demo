@@ -4,4 +4,8 @@
   tasks:
   - name: Create a namespace with token  
     shell: whoami && pwd
+    register: command_output
+
+  - debug:
+    var: command_output.stdout_lines
     #shell: KUBECONFIG: "/home/adminlocal/kubeconfig-orin" oc get all --insecure-skip-tls-verify=true
