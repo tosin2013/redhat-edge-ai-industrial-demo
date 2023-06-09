@@ -1,8 +1,6 @@
-- name: Login
+- name: oc_get_all
   hosts: localhost
   gather_facts: false
-  environment:
-    KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
   tasks:
   - name: Create a namespace with token  
-    shell: oc get all --insecure-skip-tls-verify=true
+    shell: KUBECONFIG: "/home/adminlocal/kubeconfig-orin" oc get all --insecure-skip-tls-verify=true
