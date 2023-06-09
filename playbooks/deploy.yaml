@@ -6,7 +6,7 @@
     shell: whoami && pwd && ls -la /home/adminlocal/kubeconfig-orin
     register: command_output
 
-  - debug:
-    var: command_output.stdout_lines
-    
+    debug:
+      var: command_output.stdout_lines
+
     #shell: KUBECONFIG: "/home/adminlocal/kubeconfig-orin" oc get all --insecure-skip-tls-verify=true
