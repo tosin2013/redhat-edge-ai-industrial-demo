@@ -1,0 +1,12 @@
+- name: oc_delete_deployment
+  hosts: all
+  tasks:
+  environment:
+    KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
+  tasks:
+  - name: Delete deployment
+    shell: oc delete -f deployment.yaml --insecure-skip-tls-verify=true
+    register: command_output
+
+  - debug:
+      msg: "{{ command_output }}"

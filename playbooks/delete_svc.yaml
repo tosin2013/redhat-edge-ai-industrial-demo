@@ -1,0 +1,12 @@
+- name: oc_delete_svc
+  hosts: all
+  tasks:
+  environment:
+    KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
+  tasks:
+  - name: Delete svc
+    shell: oc delete -f svc.yaml --insecure-skip-tls-verify=true
+    register: command_output
+
+  - debug:
+      msg: "{{ command_output }}"

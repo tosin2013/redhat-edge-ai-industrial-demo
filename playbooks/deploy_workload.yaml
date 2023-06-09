@@ -1,0 +1,18 @@
+- name: oc_gdeploy_deployment
+  hosts: all
+  tasks:
+  environment:
+    KUBECONFIG: "/home/adminlocal/kubeconfig-orin"
+  tasks:
+  - name: Deploy workload
+    shell: oc apply -f deployment.yaml --insecure-skip-tls-verify=true
+    register: command_output
+
+  - debug:
+      msg: "{{ command_output }}"
+  - name: Deploy svc
+    shell: oc apply -f svc.yaml --insecure-skip-tls-verify=true
+    register: command_output
+
+  - debug:
+      msg: "{{ command_output }}"
