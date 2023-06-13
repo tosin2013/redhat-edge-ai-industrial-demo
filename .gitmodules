@@ -1,3 +1,3 @@
 [submodule "dataset/scripts/Labelme2YOLO"] 
   path = dataset/scripts/Labelme2YOLO 
-  url = https://github.com/bdherouville/redhat-edge-ai-industrial-demo/tree/main/dataset/images_annotated/YOLODataset
+  url = https://github.com/bdherouville/redhat-edge-ai-industrial-demo/
