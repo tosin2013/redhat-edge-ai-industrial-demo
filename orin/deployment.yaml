@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nut-detection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nut-detection
+  template:
+    metadata:
+      labels:
+        app: nut-detection
+    spec:
+      containers:
+        - name: nut-detection
+          image: quay.io/bertrand_dherouville/nut:latest
+          runtime: nvidia
+          ports:
+            - containerPort: 5000
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+            runAsNonRoot: true
+      hostAliases:
+        - ip: "192.168.0.198"
+          hostnames:
+          - "rpi4.dherouville.home"
+      args:
+        - "/etc/hosts"
