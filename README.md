@@ -87,6 +87,86 @@ This cell navigates to the `yolov5` directory and runs the command `python train
 This cell finds the file named `best.pt` in the current directory and moves it to the directory `/opt/app-root/src/redhat-edge-ai-industrial-demo/model/nut.pt`. This step is performed using the `find` command combined with the `mv` command. The `best.pt` file represents the trained model with the best performance during training and is renamed as `nut.pt` in the target directory for further usage.
 
 
-# Create the workload container
+# Workload container
 
 
+## Create the container
+
+
+The command podman create is used to create a container, and -t specifies the name for the container as 'nut'. The dot (.) at the end represents the build context, indicating that the container should be created using the current directory as the build context.
+
+```
+podman create -t nut .
+```
+
+## Tag the container to the registry's tag
+
+The following podman command podman tag is used to assign a new tag to the container and amke us able to push the container to the registry.
+```
+podman tag -t localhost:nut your-registry-name/container:tag
+```
+
+## Push the container to the registry.
+
+This podman command push is used to upload the container to the specified registry. The container is identified by its name and tag, which are provided as your-registry-name/container:tag.
+
+```
+podman push your-registry-name/container:tag
+```
+
+# Microshift Deployment
+
+
+deployment.yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nut-detection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nut-detection
+  template:
+    metadata:
+      labels:
+        app: nut-detection
+    spec:
+      containers:
+        - name: nut-detection
+          image: quay.io/bertrand_dherouville/nut:latest
+          runtime: nvidia
+          ports:
+            - containerPort: 5000
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+            runAsNonRoot: true
+      hostAliases:
+        - ip: "192.168.0.198"
+          hostnames:
+          - "rpi4.domain.local"
+      args:
+        - "/etc/hosts"
+```
+
+svc.yaml
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: nut-detection-service
+spec:
+  selector:
+    app: nut-detection
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 30000   # Specify the desired NodePort value here
+  type: NodePort       # Use NodePort type for the service
+```
