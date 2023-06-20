@@ -85,3 +85,8 @@ This cell navigates to the `yolov5` directory and runs the command `python train
 ## Move the Best Model
 
 This cell finds the file named `best.pt` in the current directory and moves it to the directory `/opt/app-root/src/redhat-edge-ai-industrial-demo/model/nut.pt`. This step is performed using the `find` command combined with the `mv` command. The `best.pt` file represents the trained model with the best performance during training and is renamed as `nut.pt` in the target directory for further usage.
+
+
+# Create the workload container
+
+
