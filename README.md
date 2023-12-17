@@ -170,3 +170,19 @@ spec:
       nodePort: 30000   # Specify the desired NodePort value here
   type: NodePort       # Use NodePort type for the service
 ```
+
+# For OpenShift Deployments 
+
+**Infrastructure Notes**
+* [redhat-edge-ai-industrial-demo-infra](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra)
+
+**Tekton Pipelines**
+* Tekyon Pipeline for [redhat-edge-ai-industrial-demo](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra/tree/main/components/applications/redhat-edge-ai-industrial-demo/overlays/rhde-dev-env)
+
+**Via URL**  
+
+*make sure openshift pipelines is installed before running*
+
+```
+oc apply -k https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra/components/applications/redhat-edge-ai-industrial-demo/overlays/rhde-dev-env
+```
