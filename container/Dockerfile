@@ -15,6 +15,9 @@ RUN dnf install -y libpng
 RUN pip install opencv-python-headless Pillow numpy flask flask_socketio eventlet gevent gevent-websocket
 RUN git clone https://github.com/ultralytics/yolov5 && cd yolov5 && sed -i s/'opencv-python>'/'opencv-python-headless>'/g requirements.txt && pip install -r requirements.txt && pip uninstall -y opencv-python && pip install --force-reinstall opencv-python-headless 
 
+# Install gevent and gevent-websocket
+RUN pip install gevent gevent-websocket
+
 # Expose the port if needed
 EXPOSE 5000 
 
