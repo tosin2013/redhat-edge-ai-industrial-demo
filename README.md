@@ -177,7 +177,7 @@ spec:
 * [redhat-edge-ai-industrial-demo-infra](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra)
 
 **Tekton Pipelines**
-* Tekyon Pipeline for [redhat-edge-ai-industrial-demo](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra/tree/main/components/applications/redhat-edge-ai-industrial-demo/overlays/rhde-dev-env)
+* Tekton Pipeline for [redhat-edge-ai-industrial-demo](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra/tree/main/components/applications/redhat-edge-ai-industrial-demo/overlays/rhde-dev-env)
 
 **Via URL**  
 
