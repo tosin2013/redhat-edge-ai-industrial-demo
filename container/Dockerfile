@@ -7,12 +7,6 @@ WORKDIR /app
 # Install dependencies
 RUN dnf install -y libpng gcc-c++ make python3-devel git
 
-# Create a non-root user
-RUN useradd -ms /bin/bash user
-
-# Switch to the non-root user
-USER user
-
 # Copy the code into the container
 COPY . /app
 
@@ -35,6 +29,8 @@ EXPOSE 5000
 
 # Set environment variables if needed
 ENV LD_LIBRARY_PATH=/usr/lib64:/usr/lib64/openmpi/lib/:$LD_LIBRARY_PATH
+
+USER 1001
 
 # Run the script when the container launches
 CMD ["python3", "redhat.py"]
