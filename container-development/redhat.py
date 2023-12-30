@@ -12,6 +12,7 @@ import base64
 import time
 import os
 import eventlet
+import os
 
 
 # Model
@@ -19,7 +20,7 @@ model = torch.hub.load('yolov5', 'custom', path='/app/nut.pt', source='local')
 
 app = Flask(__name__)
 
-video_path = 'http://rpi4.dherouville.home:8081/'
+video_path = os.environ.get('VIDEO_URL', 'http://rpi4.dherouville.home:8081/')
 stream = cv2.VideoCapture(video_path)
 results = None
 results_lock = None
