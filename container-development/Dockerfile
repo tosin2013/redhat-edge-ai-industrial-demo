@@ -30,7 +30,8 @@ ENV VIDEO_URL="http://rpi4.dherouville.home:8081/"
 WORKDIR /app
 
 # Copy the code into the container
-COPY . /app
+#COPY . /app
+COPY redhat.py  /app
 
 # Clone and install YOLOv5 with the necessary modifications
 RUN git clone https://github.com/ultralytics/yolov5 && cd yolov5 && \
