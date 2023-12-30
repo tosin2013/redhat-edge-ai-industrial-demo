@@ -1,7 +1,7 @@
 # Define variables
 IMAGE_NAME := nut:latest
 DOCKERFILE_PATH := ./Dockerfile
-CONTEXT_PATH := container
+CONTEXT_PATH := container-development
 CONTAINER_NAME := nut-instance
 
 .PHONY: build-image run-image clean-image
