@@ -18,5 +18,9 @@ clean-image:
 	@echo "Cleaning up..."
 	buildah rmi $(IMAGE_NAME)
 
+clean-container:
+	@echo "Cleaning up..."
+	podman rm $(CONTAINER_NAME)
+
 # Optionally, you can add a target for pushing the image to a container registry here
 

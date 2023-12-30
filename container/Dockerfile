@@ -5,37 +5,20 @@ FROM quay.io/hgeaydem/ubi9-jetson-pytorch
 WORKDIR /app
 
 # Install dependencies
-RUN  dnf update -y && \
-     dnf install -y libpng gcc-c++ make python3-devel git wget tar && \
-     wget https://www.open-mpi.org/software/ompi/v4.1/downloads/openmpi-4.1.1.tar.gz && \
-     tar zxf openmpi-4.1.1.tar.gz && \
-     cd openmpi-4.1.1 && \
-     ./configure --prefix=/usr/local && \
-     make all install && \
-     ldconfig
 
 # Copy the code into the container
 COPY . /app
 
-# Install gevent and gevent-websocket
-RUN pip install gevent gevent-websocket
+RUN dnf install -y libpng
 
 # Install Python dependencies
 RUN pip install opencv-python-headless Pillow numpy flask flask_socketio eventlet gevent gevent-websocket
-
-# Clone the YOLOv5 repository and install its requirements
-RUN git clone https://github.com/ultralytics/yolov5 && \
-    cd yolov5 && \
-    sed -i s/'opencv-python>'/'opencv-python-headless>'/g requirements.txt && \
-    pip install -r requirements.txt && \
-    pip uninstall -y opencv-python && \
-    pip install --force-reinstall opencv-python-headless 
+RUN git clone https://github.com/ultralytics/yolov5 && cd yolov5 && sed -i s/'opencv-python>'/'opencv-python-headless>'/g requirements.txt && pip install -r requirements.txt && pip uninstall -y opencv-python && pip install --force-reinstall opencv-python-headless 
 
 # Expose the port if needed
 EXPOSE 5000 
 
-# Set environment variables if needed
-ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH=/usr/lib64:/usr/lib64/openmpi/lib/:$LD_LIBRARY_PATH
 
 USER 1001
 
