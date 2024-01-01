@@ -32,6 +32,9 @@ WORKDIR /app
 # Copy the code into the container
 #COPY . /app
 COPY redhat.py  /app
+COPY templates /app/templates
+COPY redhat.py_websocket /app
+COPY nut.pt /app
 
 # Clone and install YOLOv5 with the necessary modifications
 RUN git clone https://github.com/ultralytics/yolov5 && cd yolov5 && \
