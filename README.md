@@ -173,6 +173,10 @@ spec:
 
 # For OpenShift Deployments 
 
+## Review the Documenation below for OpenShift Deployments
+* [AWS Blank Environment Instructions](docs/aws-deployment.md)
+* [Rosa Deployment Instructions](docs/rosa-deployment.md)
+
 **Infrastructure Notes**
 * [redhat-edge-ai-industrial-demo-infra](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra)
 
