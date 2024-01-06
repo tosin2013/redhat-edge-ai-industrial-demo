@@ -1,4 +1,5 @@
 # Run tekton pipeline
+![20240106134547](https://i.imgur.com/ssgQacx.png)
 
 ## Prerequisites
 * Configure Secret for quay regisgtry -> use this link as reference [configure-pipeline-secret.sh](https://raw.githubusercontent.com/tosin2013/redhat-edge-ai-industrial-demo-infra/main/hack/configure-pipeline-secret.sh)
