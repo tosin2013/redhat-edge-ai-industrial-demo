@@ -30,3 +30,5 @@ oc create -k clusters/overlays/rosa
 * [Run tekton pipeline](run-tekton-pipeline.md)
 
 ![20240106111607](https://i.imgur.com/SH87x22.png)
+
+![20240106134547](https://i.imgur.com/ssgQacx.png)
