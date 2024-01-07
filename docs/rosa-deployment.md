@@ -5,9 +5,9 @@
 
 ## Prerequisites
 * Ensure cluster is updated to 4.13
-* Change worker node count to 3 
+* Change worker node count to 4 on a minimal deployment. 
   
-![20240106142502](https://i.imgur.com/kMdBwSo.png)
+![![20240106142502](httpsi.imgur.comkMdBwSo.png)](https://i.imgur.com/jKjN4Ev.png)
 
 
 ## SSH into RHEL jumpbox
