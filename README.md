@@ -173,11 +173,15 @@ spec:
 
 # For OpenShift Deployments 
 
+## Review the Documenation below for OpenShift Deployments
+* [AWS Blank Environment Instructions](docs/aws-deployment.md)
+* [Rosa Deployment Instructions](docs/rosa-deployment.md)
+
 **Infrastructure Notes**
 * [redhat-edge-ai-industrial-demo-infra](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra)
 
 **Tekton Pipelines**
-* Tekyon Pipeline for [redhat-edge-ai-industrial-demo](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra/tree/main/components/applications/redhat-edge-ai-industrial-demo/overlays/rhde-dev-env)
+* Tekton Pipeline for [redhat-edge-ai-industrial-demo](https://github.com/tosin2013/redhat-edge-ai-industrial-demo-infra/tree/main/components/applications/redhat-edge-ai-industrial-demo/overlays/rhde-dev-env)
 
 **Via URL**  
 
