@@ -1,0 +1,13 @@
+- name: oc_get_all
+  hosts: all
+  tasks:
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  tasks:
+  - name: oc get all
+    shell: oc get all --insecure-skip-tls-verify=true
+    register: command_output
+
+  - name: Displaying the Microshift Cluster Status
+    debug:
+      msg: "{{ command_output }}"
