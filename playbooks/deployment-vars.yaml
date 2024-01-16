@@ -1,3 +1,0 @@
-# Varibles used in each playbook for reference
-
-kubeconfig_path: "/var/lib/microshift/resources/kubeadmin/kubeconfig" #"/home/adminlocal/kubeconfig-orin"

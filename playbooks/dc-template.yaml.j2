@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ deployment_name }}
+  namespace: {{ namespace }}
+spec:
+  progressDeadlineSeconds: {{ progress_deadline_seconds }}
+  replicas: {{ replicas }}
+  selector:
+    matchLabels:
+      app: {{ app_name }}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ app_name }}
+    spec:
+      serviceAccountName: {{ service_account_name }}
+      containers:
+      - image: "{{ container_image }}"
+        env:
+        - name: EXTERNAL_HOST
+          value: "{{ external_host }}"
+        - name: EXTERNAL_PORT
+          value: "{{ external_port }}"
+        imagePullPolicy: {{ image_pull_policy }}
+        name: {{ container_name }}
+        ports:
+        - containerPort: {{ container_port }}
+          protocol: TCP
+        resources: {}
+        securityContext:
+          privileged: true
+          runAsGroup: {{ run_as_group }}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /dev/video1
+          name: video0
+        - mountPath: /dev/video0
+          name: video1
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        privileged: true
+        runAsGroup: {{ run_as_group }}
+      terminationGracePeriodSeconds: {{ termination_grace_period_seconds }}
+      volumes:
+      - hostPath:
+          path: /dev/video0
+          type: ""
+        name: video0
+      - hostPath:
+          path: /dev/video1
+          type: ""
+        name: video1

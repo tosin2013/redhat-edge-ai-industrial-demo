@@ -1,0 +1,29 @@
+# Varibles used in each playbook for reference
+
+kubeconfig_path: "/var/lib/microshift/resources/kubeadmin/kubeconfig" #"/home/adminlocal/kubeconfig-orin"
+output_path: "/tmp/"
+
+# Deployment Vars
+deployment_name: pins-opendemo-deployment
+namespace: pins-opendemo
+progress_deadline_seconds: 600
+replicas: 1
+app_name: pins-opendemo
+service_account_name: dev-pod-sa
+container_image: quay.io/bertrand_dherouville/pins-opendemo:latest
+external_host: "orin.lab.local"
+external_port: "30000"
+image_pull_policy: Always
+container_name: pins-opendemo-container
+container_port: 5000
+run_as_group: 39
+termination_grace_period_seconds: 30
+
+# Service Vars
+service_name: pins-opendemo-service
+namespace: pins-opendemo
+app_name: pins-opendemo
+service_port: 5000
+target_port: 5000
+node_port: 30000  # Specify the desired NodePort number
+service_type: NodePort
