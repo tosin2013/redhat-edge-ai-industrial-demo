@@ -20,7 +20,7 @@ ADD video.mp4 /app/
 ADD templates /app/templates
 ADD static /app/static
 COPY app.py /app/
-COPY best.pt /app/
+COPY pins.pt /app/
 
 ENV CONDA_EXE=/opt/conda/bin/conda
 ENV CONDA_PREFIX=/opt/conda
