@@ -4,10 +4,27 @@
   environment:
     KUBECONFIG: "{{ kubeconfig_path }}"
   tasks:
+
+  - name: oc cluster-info
+    shell: oc cluster-info --insecure-skip-tls-verify=true
+    register: cluster_info_output
+
+  - name: Displaying Cluster Info
+    debug:
+      msg: "{{ cluster_info_output.stdout_lines }}"
+
   - name: oc get all
     shell: oc get all --insecure-skip-tls-verify=true
     register: command_output
 
   - name: Displaying the Microshift Cluster Status
+    debug:
+      msg: "{{ command_output }}"
+
+  - name: oc get pods -A 
+    shell: oc get pods -A --insecure-skip-tls-verify=true
+    register: command_output
+
+  - name: Displaying all Pods
     debug:
       msg: "{{ command_output }}"
