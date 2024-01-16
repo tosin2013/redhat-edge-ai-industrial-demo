@@ -2,6 +2,8 @@
 - name: Deploy to OpenShift 
   hosts: localhost
   gather_facts: no
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
   tasks:
     - name: Create a namespace
       k8s:
