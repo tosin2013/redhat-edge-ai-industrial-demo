@@ -19,8 +19,8 @@
 
     - name: Apply Service Account 
       kubernetes.core.k8s:
-        state: present
-        definition: "{{ output_path }}/service-account.yaml"
+      template:
+        - path: 'service-account.yaml.j2'
 
     - name: Generaete Role Binding
       template:
