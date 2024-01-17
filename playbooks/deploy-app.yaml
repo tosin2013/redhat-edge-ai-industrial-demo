@@ -23,12 +23,24 @@
         state: present
         template:
           - path: 'rb-template.yaml.j2'
+    # Create a deployment config file then attempt to validate it to test it 
+    - name: Create Deployment Config File
+      template:
+        src: dc-template.yaml.j2
+        dest: /tmp/dc-template.yaml
+      register: dc_file
+
+    - name: Validate Deployment Config File
+      k8s_validate:
+        src: /tmp/dc-template.yaml
+      register: dc_validate
 
     - name: Apply MicroShift Deployment
       k8s:
         state: present
         template:
           - path: 'dc-template.yaml.j2'
+      when: dc_validate.valid
 
     - name: Apply MicroShift Service
       k8s:
