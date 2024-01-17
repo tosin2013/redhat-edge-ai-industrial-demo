@@ -1,6 +1,6 @@
 ---
-- name: Deploy to OpenShift 
-  hosts: localhost
+- name: Deploy to MicroShift 
+  hosts: all
   gather_facts: no
   environment:
     KUBECONFIG: "{{ kubeconfig_path }}"
