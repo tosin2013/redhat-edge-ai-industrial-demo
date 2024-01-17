@@ -1,54 +1,37 @@
 ---
-- name: Destroy App
+- name: Deploy to MicroShift 
   hosts: all
   gather_facts: no
   environment:
     KUBECONFIG: "{{ kubeconfig_path }}"
   tasks:
     - name: Create a namespace
-      kubernetes.core.k8s:
-        state: absent
+      k8s:
+        state: present
         api_version: v1
         kind: Namespace
         name: "{{namespace }}"
 
-    - name: Genereate Service Account file
-      template:
-        src: service-account.yaml.j2
-        dest: "{{ output_path }}/service-account.yaml"  
-
-    - name: Delete Service Account 
+    - name: Remove Service Account 
       kubernetes.core.k8s:
-        state: absent
-        definition: "{{ output_path }}/service-account.yaml"
+        state: present
+        template:
+          - path: 'service-account.yaml.j2'
 
-    - name: Generaete Role Binding
-      template:
-        src: rb-template.yaml.j2
-        dest: "{{ output_path }}/rb-template.yaml.j2"  
-
-    - name: Delete Role Binding
+    - name: Remove Role Binding
       kubernetes.core.k8s:
-        state: absent
-        definition: "{{ output_path }}/rb-template.yaml"  
+        state: present
+        template:
+          - path: 'rb-template.yaml.j2'
 
-    - name: Render MicroShift Deployment
-      template:
-        src: dc-template.yaml.j2
-        dest: "{{ output_path }}/deployment.yaml"  
+    - name: Remove MicroShift Deployment
+      k8s:
+        state: present
+        template:
+          - path: 'dc-template.yaml.j2'
 
-    - name: Delete MicroShift Deployment
-      kubernetes.core.k8s:
-        state: absent
-        definition: "{{ output_path }}/deployment.yaml"  
-
-    - name: Render MicroShift Service
-      template:
-        src: svc-template.yaml.j2 
-        dest: "{{ output_path  }}/svc.yaml"
-      vars:
-
-    - name: Delete MicroShift Service
-      kubernetes.core.k8s:
-        state: absent
-        definition: "{{ output_path  }}/svc.yaml"
+    - name: Remove MicroShift Service
+      k8s:
+        state: present
+        template:
+          - path: 'svc-template.yaml.j2'
