@@ -39,12 +39,17 @@
     - name: Attempt Deployment 
       kubernetes.core.k8s:
         state: present
-        definition: "{{ lookup('template', '/tmp/dc-template.yaml') | from_yaml }}"
+        src:  "/tmp/dc-template.yaml"
       ignore_errors: true
+
+    - name: Create Deployment Config File
+      template:
+        src: svc-template.yaml.j2
+        dest: /tmp/svc-template.yaml
+      register: dc_file
 
 
     - name: Apply MicroShift Service
       k8s:
         state: present
-        template:
-          - path: 'svc-template.yaml.j2'
+        src:  "/tmp/dc-template.yaml"
