@@ -11,6 +11,12 @@
         template:
           - path: 'service-account.yaml.j2'
 
+    - name: Remove Security Context Constraint
+      kubernetes.core.k8s:
+        state: absent
+        template:
+          - path: 'security-context-constraints.yaml.j2'
+
     - name: Remove Role Binding
       kubernetes.core.k8s:
         state: absent

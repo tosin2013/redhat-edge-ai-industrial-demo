@@ -18,6 +18,12 @@
         template:
           - path: 'service-account.yaml.j2'
 
+    - name: Create Security Context Constraint
+      kubernetes.core.k8s:
+        state: present
+        template:
+          - path: 'security-context-constraints.yaml.j2'
+
     - name: Apply Role Binding
       kubernetes.core.k8s:
         state: present
