@@ -29,7 +29,7 @@
         template:
           - path: 'svc-template.yaml.j2'
 
-    - name: Create a namespace
+    - name: Delete the namespace
       k8s:
         state: absent
         api_version: v1
