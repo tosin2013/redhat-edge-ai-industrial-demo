@@ -12,7 +12,7 @@
         kind: Namespace
         name: "{{namespace }}"
 
-   - name: Genereate Service Account file
+    - name: Genereate Service Account file
       template:
         src: service-account.yaml.j2
         dest: "{{ output_path }}/service-account.yaml"  
