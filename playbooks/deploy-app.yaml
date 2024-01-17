@@ -12,10 +12,31 @@
         kind: Namespace
         name: "{{namespace }}"
 
+   - name: Genereate Service Account file
+      template:
+        src: service-account.yaml.j2
+        dest: "{{ output_path }}/service-account.yaml"  
+
+    - name: Apply Service Account 
+      kubernetes.core.k8s:
+        state: present
+        definition: "{{ output_path }}/service-account.yaml"
+
+    - name: Generaete Role Binding
+      template:
+        src: rb-template.yaml.j2
+        dest: "{{ output_path }}/rb-template.yaml.j2"  
+
+    - name: Apply Role Binding
+      kubernetes.core.k8s:
+        state: present
+        definition: "{{ output_path }}/rb-template.yaml"  
+
     - name: Render MicroShift Deployment
       template:
         src: dc-template.yaml.j2
         dest: "{{ output_path }}/deployment.yaml"  
+      
 
     - name: Apply MicroShift Deployment
       k8s:
@@ -26,7 +47,6 @@
       template:
         src: svc-template.yaml.j2 
         dest: "{{ output_path  }}/svc.yaml"
-      vars:
 
     - name: Apply MicroShift Service
       k8s:
