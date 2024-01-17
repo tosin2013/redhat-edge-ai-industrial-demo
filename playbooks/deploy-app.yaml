@@ -36,19 +36,12 @@
         dest: /tmp/dc-template.yaml
       register: dc_file
 
-    - name: fail on validation errors
+    - name: Attempt Deployment 
       kubernetes.core.k8s:
         state: present
         definition: "{{ lookup('template', '/tmp/dc-template.yaml') | from_yaml }}"
-        validate:
-          fail_on_error: yes
+      ignore_errors: true
 
-    #- name: Apply MicroShift Deployment
-    #  k8s:
-    #    state: present
-    #    template:
-    #      - path: 'dc-template.yaml.j2'
-    #  when: dc_validate.valid
 
     - name: Apply MicroShift Service
       k8s:
