@@ -12,7 +12,7 @@ deployment_name: pins-opendemo-deployment
 progress_deadline_seconds: 600
 replicas: 1
 service_account_name: dev-pod-sa
-container_image: quay.io/redhat_edge_ai_industrial_demo/pins_demo:latest
+container_image: quay.io/redhat_edge_ai_industrial_demo/pins_demo:rh1
 external_host: "orin.lab.local"
 external_port: "30000"
 image_pull_policy: Always
