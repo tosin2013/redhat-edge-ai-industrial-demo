@@ -19,10 +19,10 @@ spec:
       containers:
       - image: "{{ container_image }}"
         env:
-        - name: EXTERNAL_HOST
-          value: "{{ external_host }}"
         - name: EXTERNAL_PORT
           value: "{{ external_port }}"
+        - name: SERVER_FQDN
+          value: "{{ server_fqdn }}"
         imagePullPolicy: {{ image_pull_policy }}
         name: {{ container_name }}
         ports:
