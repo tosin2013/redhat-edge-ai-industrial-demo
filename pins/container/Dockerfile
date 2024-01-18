@@ -45,6 +45,8 @@ ENV CUDA_HOME=/usr/cuda
 
 ENV NVIDIA_VISIBLE_DEVICES=all
 
+ENV SERVER_FQDN="orin.lab.local"
+
 # Define the default command to run when the container starts
 CMD ["/app/app.py"]
 ENTRYPOINT ["python3"]
