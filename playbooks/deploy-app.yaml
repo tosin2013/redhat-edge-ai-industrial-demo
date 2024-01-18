@@ -51,4 +51,4 @@
     - name: Apply MicroShift Service
       k8s:
         state: present
-        src:  "/tmp/dc-template.yaml"
+        src:  "/tmp/svc-template.yaml"
