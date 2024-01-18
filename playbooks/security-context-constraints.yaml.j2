@@ -23,4 +23,6 @@ allowedCapabilities:
 volumes:
 - '*'
 users:
-- "system:serviceaccount:dev-pod-sa:{{ namespace }}"
+- "system:serviceaccount:{{ namespace }}:dev-pod-sa"
+
+
