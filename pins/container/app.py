@@ -93,7 +93,8 @@ def start_task():
 @app.route("/")
 @app.route("/home")
 def index():
-    return render_template("index.html")
+    server_fqdn = os.environ.get('SERVER_FQDN', 'orin.lab.local')
+    return render_template("index.html", server_fqdn=server_fqdn)
 
 if __name__ == "__main__":
     task = sio.start_background_task(get_video_frames)
